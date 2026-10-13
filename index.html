@@ -1,179 +1,286 @@
-<!DOCTYPE html>
-<html>
 
+<!DOCTYPE html>
+<html lang="ms">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>foryou</title>
-    <style type="text/css">
-        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-        @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+    <title>Happy Birthday Ayah ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Indie Flower', cursive !important;
+            font-family: 'Indie Flower', cursive;
             background: #f092be;
-            /*CAPE HONEY*/
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
-
-        ::selection {
-            background: transparent;
-        }
-
-        h4 {
-            font-size: 30px;
-            line-height: 1px;
-            font-family: 'Amatic SC', cursive !important;
-        }
-
-        .color1 {
-            color: #ff6c47
-        }
-
-        /*MOUNTAIN MEADOW*/
-        .color2 {
-            color: #16aadb
-                /*TALL POPPY*/
-        }
-
 
         .card {
-            color: #013243;
-            /*SHERPA BLUE*/
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300px;
-            height: 400px;
-            background: #e0e1dc;
-            transform-style: preserve-3d;
-            transform: translate(-50%, -50%) perspective(2000px);
-            box-shadow: inset 400px 0 50px rgba(0, 0, 0, .5), 20px 0 60px rgba(0, 0, 0, .5);
-            transition: 2s;
-        }
-
-        .card:hover {
-            transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2);
-            box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 10px 100px rgba(0, 0, 0, .5);
-        }
-
-        .card:before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: #BAC1BA;
-            transform-origin: bottom;
-            transform: skewX(-45deg);
-        }
-
-        .card:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -5px;
-            width: 5px;
-            height: 100%;
-            background: #92A29C;
-            transform-origin: left;
-            transform: skewY(-45deg);
-        }
-
-        .card .imgBox {
-            width: 100%;
-            height: 100%;
             position: relative;
-            transform-origin: left;
-            transition: .7s;
+            width: 340px;
+            height: 500px;
+            background: #e0e1dc;
+            perspective: 2000px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
         }
 
-        .card .bark {
+        /* Bahagian dalam kad */
+        .details {
             position: absolute;
+            inset: 0;
+            padding: 22px 18px;
+            color: #013243;
             background: #e0e1dc;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .details h1 {
+            font-family: 'Amatic SC', cursive;
+            font-size: 38px;
+            line-height: 1.05;
+            text-align: center;
+            color: #ff6c47;
+            margin: 0 0 6px;
+        }
+
+        .details h2 {
+            font-family: 'Amatic SC', cursive;
+            font-size: 27px;
+            line-height: 1.15;
+            text-align: center;
+            color: #16aadb;
+            margin: 0 0 20px;
+        }
+
+        .details p {
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0 0 9px;
+            overflow-wrap: break-word;
+        }
+
+        .details .love {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 12px;
+        }
+
+        .details .signature {
+            text-align: right;
+            font-size: 17px;
+            margin-top: 12px;
+        }
+
+        /* Kulit depan kad */
+        .imgBox {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            transform-origin: left;
+            transition: transform 1.2s ease;
+            cursor: pointer;
+            background: #e0e1dc;
+            backface-visibility: visible;
+        }
+
+        .imgBox img {
+            display: block;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: .7s;
+            object-fit: cover;
+            object-position: center;
         }
 
-        .card .imgBox img {
-            min-width: 250px;
-            max-height: 400px;
+        .cover-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.12),
+                rgba(0, 0, 0, 0.4)
+            );
+            text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.65);
         }
 
-        .card:hover .imgBox {
+        .cover-label h2 {
+            font-family: 'Amatic SC', cursive;
+            font-size: 43px;
+            margin: 0;
+        }
+
+        .cover-label p {
+            font-size: 18px;
+            margin-top: 8px;
+        }
+
+        .card.open .imgBox {
             transform: rotateY(-135deg);
         }
 
-        .card:hover .bark {
-            opacity: 1;
-            transition: .6s;
-            box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+        .card {
+            border-radius: 3px;
         }
 
-        .card .details {
+        .hint {
             position: absolute;
-            top: 0;
+            bottom: 12px;
             left: 0;
-            box-sizing: border-box;
-            padding: 0 0 0 10px;
-            z-index: -1;
-            margin-top: 40px;
-        }
-
-        .card .details p {
-            font-size: 15px;
-            line-height: 5px;
-            transform: rotate(-10deg);
-            padding: 0 0 0 20px;
-        }
-
-        .card .details h4 {
+            width: 100%;
             text-align: center;
+            font-size: 13px;
+            color: #fff;
+            z-index: 3;
+            pointer-events: none;
+            text-shadow: 1px 1px 4px #333;
         }
 
-        .text-right {
-            text-align: right;
+        /* Paparan telefon */
+        @media (max-width: 400px) {
+            .card {
+                width: 88vw;
+                height: min(500px, 78vh);
+            }
+
+            .details {
+                padding: 16px 14px;
+            }
+
+            .details h1 {
+                font-size: 34px;
+            }
+
+            .details h2 {
+                font-size: 24px;
+                margin-bottom: 14px;
+            }
+
+            .details p {
+                font-size: 13px;
+                line-height: 1.45;
+                margin-bottom: 7px;
+            }
+
+            .cover-label h2 {
+                font-size: 37px;
+            }
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="https://cdn.prinsh.com/NathanPrinsley-textstyle/nprinsh-stext.css" />
 </head>
 
 <body>
-    <div class="card">
-        <div class="imgBox">
-            <Sediv class="bark"></Sediv>
-            <img src="https://assets.cardly.net/production/artwork/8/9/8/898e1f13-0dfa-6d62-664e-070005c2f046/detail/cute-happy-birthday-dog-p1-r2.webp"
-                width="100%" height="100%">
-        </div>
+
+    <div class="card" id="birthdayCard">
+
+        <!-- Ucapan di dalam kad -->
         <div class="details">
-            <h4 class="color1">Happy Birthday</h2>
-                <h4 class="color2 margin">MOHD NAZRI BIN SAMSURI</h3>
-                    <p>Selamat hari lahir, ayah tersayang! ❤️</p>
-                    <p>Semoga ayah sentiasa sihat dan panjang umur</p>
-                    <p>Terima kasih atas segala pengorbanan ayah selama ini</p>
-                    <p>Semoga dimurahkan rezeki dan dipermudahkan segala urusan,</p>
-                    <p>Semoga ayah sentiasa berada dalam lindungan Allah,</p>
-                    <p>Semoga segala impian dan doa ayah dimakbulkan..</p>
-                    <p>Saya doakan ayah sentiasa bahagia dan tenang.</p>
-                    <p>I LOVE YOU</p>
-                    <p>I love you, ayah! Terima kasih untuk segalanya. ❤️🎂</p>
 
-                    <p class="text-right">-Iskandar</p>
-                    <p class="text-right"></p>
+            <h1>Happy Birthday</h1>
+            <h2>MOHD NAZRI BIN SAMSURI</h2>
 
-                    <audio autoplay loop>
-                        <source src="musik/love.mp3" type="audio/mpeg">
-                     </audio>
+            <p>Selamat hari lahir, ayah tersayang! ❤️</p>
+
+            <p>
+                Semoga ayah sentiasa sihat dan panjang umur.
+            </p>
+
+            <p>
+                Terima kasih atas segala pengorbanan ayah selama ini.
+            </p>
+
+            <p>
+                Semoga dimurahkan rezeki dan dipermudahkan segala urusan.
+            </p>
+
+            <p>
+                Semoga ayah sentiasa berada dalam lindungan Allah.
+            </p>
+
+            <p>
+                Semoga segala impian dan doa ayah dimakbulkan.
+            </p>
+
+            <p>
+                Saya doakan ayah sentiasa bahagia dan tenang.
+            </p>
+
+            <p class="love">
+                I LOVE YOU, AYAH! ❤️🎂
+            </p>
+
+            <p class="signature">
+                Terima kasih untuk segalanya.<br>
+                — Iskandar ❤️
+            </p>
 
         </div>
+
+        <!-- Kulit depan kad -->
+        <div class="imgBox" id="cardCover">
+
+            <img
+                src="https://assets.cardly.net/production/artwork/8/9/8/898e1f13-0dfa-6d62-664e-070005c2f046/detail/cute-happy-birthday-dog-p1-r2.webp"
+                alt="Kad hari jadi untuk ayah"
+            >
+
+            <div class="cover-label">
+                <h2>Happy Birthday!</h2>
+                <p>For my beloved father ❤️</p>
+                <p>Tap to open 💌</p>
+            </div>
+
+        </div>
+
+        <div class="hint" id="hint">
+            Klik kad untuk buka ❤️
+        </div>
+
     </div>
 
-</body>
+    <!-- Muzik: pastikan fail love.mp3 berada dalam folder musik -->
+    <audio id="birthdayMusic" loop>
+        <source src="musik/love.mp3" type="audio/mpeg">
+    </audio>
 
+    <script>
+        const card = document.getElementById('birthdayCard');
+        const cover = document.getElementById('cardCover');
+        const hint = document.getElementById('hint');
+        const music = document.getElementById('birthdayMusic');
+
+        cover.addEventListener('click', function () {
+            card.classList.toggle('open');
+
+            if (card.classList.contains('open')) {
+                hint.textContent = 'Klik kulit kad untuk tutup ❤️';
+
+                music.play().catch(function () {
+                    // Muzik mungkin perlu dimainkan secara manual
+                    // jika pelayar menyekat audio.
+                });
+            } else {
+                hint.textContent = 'Klik kad untuk buka ❤️';
+            }
+        });
+    </script>
+
+</body>
 </html>
 
